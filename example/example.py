@@ -1,3 +1,6 @@
+import sys
+sys.path.append('../')
+
 from darksky import DarkSky
 
 darksky = DarkSky('YOUR_API_KEY')
