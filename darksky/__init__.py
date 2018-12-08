@@ -1,1 +1,1 @@
-from api import DarkSky
+from .api import DarkSky

@@ -11,7 +11,7 @@ class Forecast(StringMixin):
         self.minutely  = Minutely(data.get("minutely", {}))
         self.hourly    = Hourly(data.get("hourly", {}))
         self.daily     = Daily(data.get("daily", {}))
-        self.alerts    = map(Alert, data.get("alerts", []))
+        self.alerts    = list(map(Alert, data.get("alerts", [])))
         self.flags     = Flags(data.get("flags", {}))
         self.apicalls  = data.get("apicalls")
         self.code      = data.get("code")
@@ -40,7 +40,7 @@ class DataBlock(StringMixin):
     def __init__(self, data):
         self.summary = data.get('summary')
         self.icon    = data.get('icon')
-        self.data    = map(DataPoint, data.get('data', []))
+        self.data    = list(map(DataPoint, data.get('data', [])))
 
     def get(self, index=None):
         if index is None:
